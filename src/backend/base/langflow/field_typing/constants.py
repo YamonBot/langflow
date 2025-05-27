@@ -18,6 +18,7 @@ from langchain_core.retrievers import BaseRetriever
 from langchain_core.tools import BaseTool, Tool
 from langchain_core.vectorstores import VectorStore, VectorStoreRetriever
 from langchain_text_splitters import TextSplitter
+from langchain.callbacks.base import BaseCallbackHandler
 
 from langflow.schema.data import Data
 from langflow.schema.dataframe import DataFrame
@@ -27,6 +28,8 @@ NestedDict: TypeAlias = dict[str, str | dict]
 LanguageModel = TypeVar("LanguageModel", BaseLanguageModel, BaseLLM, BaseChatModel)
 ToolEnabledLanguageModel = TypeVar("ToolEnabledLanguageModel", BaseLanguageModel, BaseLLM, BaseChatModel)
 Memory = TypeVar("Memory", bound=BaseChatMessageHistory)
+
+Callbacks: TypeAlias = list[BaseCallbackHandler]
 
 Retriever = TypeVar(
     "Retriever",
@@ -83,6 +86,7 @@ CUSTOM_COMPONENT_SUPPORTED_TYPES = {
     "LanguageModel": LanguageModel,
     "Retriever": Retriever,
     "DataFrame": DataFrame,
+    "Callbacks": Callbacks,
 }
 
 DEFAULT_IMPORT_STRING = """from langchain.agents.agent import AgentExecutor
@@ -132,4 +136,5 @@ from langflow.io import (
 from langflow.schema.data import Data
 from langflow.schema.dataframe import DataFrame
 from langflow.schema.message import Message
+from langflow.field_typing import Callbacks
 """
