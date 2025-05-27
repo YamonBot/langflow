@@ -88,4 +88,5 @@ __all__ = [
     "TextSplitter",
     "Tool",
     "VectorStore",
+    "Callbacks",
 ]

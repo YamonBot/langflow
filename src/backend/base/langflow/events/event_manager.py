@@ -65,7 +65,7 @@ class EventManager:
             callback_ = partial(callback, manager=self, event_type=event_type)
         self.events[name] = callback_
 
-    def send_event(self, *, event_type: Literal["message", "error", "warning", "info", "token"], data: LoggableType):
+    def send_event(self, *, event_type: Literal["message", "error", "warning", "info", "token", "log"], data: LoggableType):
         try:
             if isinstance(data, dict) and event_type in {"message", "error", "warning", "info", "token"}:
                 data = create_event_by_type(event_type, **data)
@@ -89,6 +89,7 @@ class EventManager:
 def create_default_event_manager(queue):
     manager = EventManager(queue)
     manager.register_event("on_token", "token")
+    manager.register_event("on_log", "log")
     manager.register_event("on_vertices_sorted", "vertices_sorted")
     manager.register_event("on_error", "error")
     manager.register_event("on_end", "end")
@@ -103,6 +104,7 @@ def create_default_event_manager(queue):
 def create_stream_tokens_event_manager(queue):
     manager = EventManager(queue)
     manager.register_event("on_message", "add_message")
+    manager.register_event("on_log", "log")
     manager.register_event("on_token", "token")
     manager.register_event("on_end", "end")
     return manager
