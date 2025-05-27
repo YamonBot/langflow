@@ -176,7 +176,7 @@ curl -X POST \
   </TabItem>
 </Tabs>
 
-To stream LLM token responses, append the `?stream=true` query parameter to the request. LLM chat responses are streamed back as `token` events until the `end` event closes the connection.
+To stream LLM token responses, append the `?stream=true` query parameter to the request. LLM chat responses are streamed back as `token` events until the `end` event closes the connection. Tool calls and loop iterations emit their own log entries, streamed as `log` events.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
