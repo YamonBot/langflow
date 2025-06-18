@@ -8,7 +8,6 @@ from .google_generative_ai import GoogleGenerativeAIComponent
 from .groq import GroqModel
 from .huggingface import HuggingFaceEndpointsComponent
 from .lmstudiomodel import LMStudioModelComponent
-from .swama import SwamaModelComponent
 from .maritalk import MaritalkModelComponent
 from .mistral import MistralAIModelComponent
 from .novita import NovitaModelComponent
@@ -18,6 +17,7 @@ from .openai_chat_model import OpenAIModelComponent
 from .openrouter import OpenRouterComponent
 from .perplexity import PerplexityComponent
 from .sambanova import SambaNovaComponent
+from .swama import SwamaModelComponent
 from .vertexai import ChatVertexAIComponent
 from .watsonx import WatsonxAIComponent
 from .xai import XAIModelComponent
@@ -34,7 +34,6 @@ __all__ = [
     "GroqModel",
     "HuggingFaceEndpointsComponent",
     "LMStudioModelComponent",
-    "SwamaModelComponent",
     "MaritalkModelComponent",
     "MistralAIModelComponent",
     "NVIDIAModelComponent",
@@ -44,6 +43,7 @@ __all__ = [
     "PerplexityComponent",
     "QianfanChatEndpointComponent",
     "SambaNovaComponent",
+    "SwamaModelComponent",
     "WatsonxAIComponent",
     "XAIModelComponent",
 ]
